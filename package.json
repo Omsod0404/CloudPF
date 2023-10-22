@@ -4,7 +4,12 @@
   "description": "An API REST for HR Department using express.js",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon intex",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omsod0404/tnodesacv-express.git"
   },
   "keywords": [
     "mysql",
@@ -15,7 +20,15 @@
   ],
   "author": "Omar GM",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omsod0404/tnodesacv-express/issues"
+  },
+  "homepage": "https://github.com/Omsod0404/tnodesacv-express#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.1"
   }
 }
