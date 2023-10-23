@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Recursos Humanos</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel="stylesheet">
+    <link rel="stylesheet" href="../css/hrsystem.css">
+    <link rel="icon" href="../css/img/hexnode.png" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/hrsystem.js"></script>
+    <script src="../js/initialdatasystem.js"></script>
+</head>
+<body>
+    <header>
+      <span id="title">Sistema de Recursos Humanos</span>
+      <img src="../css/img/logonode.png" alt="Logo">
+    </header>
+    <div class="content">
+      <div class="sidebar">
+        <span>Bienvenid@</span>
+        <img src="../css/img/usuario.png" alt="Usuario">
+        <div class="data">
+        </div>
+        <div class="buttons">
+          <button class="btn" id="addregister">Agregar Empleado</button>
+          <button class="btn" id="close">Cerrar Sesión</button>
+        </div>
+      </div>
+      <div class="table">
+        <table border="1" id="tableAllEmployees">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Telefono</th>
+              <th>Correo</th>
+              <th>Dirección</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</body>
+</html>

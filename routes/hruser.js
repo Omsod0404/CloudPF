@@ -29,9 +29,10 @@ hruser.post("/login", async (req, res, next) =>{
         if(rows.length == 1){
             const token = jwt.sign({
                 hruser_id: rows[0].hruser_id,
-                hruser_mail: rows[0].hruser_mail
+                hruser_mail: rows[0].hruser_mail,             
             }, "debugkey");
-            return res.status(200).json({code:200, message:token});
+            const hruserid = rows[0].hruser_id;
+            return res.status(200).json({code:200, message:token, hruserid: hruserid});
         }
         else{
             return res.status(200).json({code: 401, message:"Usuario y/o contraseña incorrectos"})
@@ -40,9 +41,12 @@ hruser.post("/login", async (req, res, next) =>{
     return res.status(500).json({code:500, message:"Campos incompletos"});
 })
 
-hruser.get("/", async (req, res, next) => {
-    const rows = await db.query("SELECT * FROM hrusers")
-    return res.status(200).json({code:200, message: rows});
+hruser.get("/:id([0-9]{1,3})", async (req, res, next) => {
+    const id = req.params.id;
+    const data = await db.query("SELECT hruser_name, hruser_mail FROM hrusers WHERE hruser_id = "+id);
+    (data != null) 
+        ? res.status(200).json({code:200, message: data})
+        : res.status(404).json({code:404, message: "Usuario no encontrado"});
 })
 
 module.exports = hruser;
