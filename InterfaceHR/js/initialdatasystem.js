@@ -30,7 +30,7 @@ function loadAllEmployees() {
 }
 
 function displayAllEmployees(employee) {   
-    const table = document.querySelector('#tableAllEmployees tbody');
+    const table = document.querySelector('#tableEmployees tbody');
     table.innerHTML = '';
     for (let i = 0; i < employee.length; i++) {
         const newrow = document.createElement('tr');

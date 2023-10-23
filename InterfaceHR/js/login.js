@@ -30,6 +30,8 @@ function login() {
             localStorage.setItem("hruserid", res.data.hruserid);
             window.location.href = "hrsystem.html";
         } else{
+            mail.value = '';
+            pass.value = '';
             alert("Usuario y/o contraseña incorrectos");
         }
      }).catch(function (err) {

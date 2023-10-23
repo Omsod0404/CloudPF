@@ -7,12 +7,14 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel="stylesheet">
     <link rel="stylesheet" href="../css/hrsystem.css">
     <link rel="icon" href="../css/img/hexnode.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../js/hrsystem.js"></script>
     <script src="../js/initialdatasystem.js"></script>
+    <script src="../js/filteremployees.js"></script>
 </head>
 <body>
     <header>
@@ -21,7 +23,7 @@
     </header>
     <div class="content">
       <div class="sidebar">
-        <span>Bienvenid@</span>
+        <span id="welcome">Bienvenid@</span>
         <img src="../css/img/usuario.png" alt="Usuario">
         <div class="data">
         </div>
@@ -31,20 +33,35 @@
         </div>
       </div>
       <div class="table">
-        <table border="1" id="tableAllEmployees">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>Telefono</th>
-              <th>Correo</th>
-              <th>Dirección</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
+        <div class="searchbar">
+          <input type="text" id="namefilter" placeholder="Filtrar datos por nombre">
+          <button class="btn" id="search"><span class="material-icons">search</span></button>
+        </div>
+        <div class="subtitle">
+          <span>Todos los datos</span>
+        </div>
+        <div class="tablecontent">
+          <div class="datatable">
+            <table border="1" id="tableEmployees">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Apellidos</th>
+                  <th>Telefono</th>
+                  <th>Correo</th>
+                  <th>Dirección</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        <div class="actions">
+          <button>.</button>
+          <button>.</button>
+        </div>
+        </div>
       </div>
     </div>
 </body>

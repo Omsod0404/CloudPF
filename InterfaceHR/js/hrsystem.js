@@ -17,3 +17,18 @@ function init (){
         window.location.href = "./index.html";
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const btnsearch = document.querySelector('#search');
+    btnsearch.addEventListener('click', function () {
+        filterdata();
+        document.getElementById('namefilter').value = "";
+    });
+
+    const btnlogout = document.querySelector('#close');
+    btnlogout.addEventListener('click', function () {
+        window.location.href = "../index.html";
+        localStorage.removeItem("token");
+        localStorage.removeItem("hruserid");
+    })
+});
