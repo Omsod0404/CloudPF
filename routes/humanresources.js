@@ -41,7 +41,7 @@ humanresources.put("/:id([0-9]{1,3})", async (req, res, next)=>{
 
         const rows = await db.query(query);
         if (rows.affectedRows == 1) {
-            return res.status(200).json({code:200, message: "Datos actualizados correctamente"});
+            return res.status(201).json({code:201, message: "Datos actualizados correctamente"});
         }  
 
         return res.status(500).json({code:500, message:"Ocurrio un error"});

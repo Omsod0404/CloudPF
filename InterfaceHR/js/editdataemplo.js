@@ -43,4 +43,35 @@ function showEditDataDisplay(id,name,lastname,number,mail,address) {
     btncancel.addEventListener('click', function () {
         window.location.href = "../html/hrsystem.html";
     });
+    
+    const btnedit = document.querySelector('#add');
+    btnedit.addEventListener('click', function () {
+        editDataEmployee(id);
+    });
+
+    function editDataEmployee(id) {
+        var name = document.getElementById('input-name').value;
+        var lastanme = document.getElementById('input-lastname').value; 
+        var number = document.getElementById('input-number').value;
+        var mail = document.getElementById('input-mail').value; 
+        var address = document.getElementById('input-address').value;
+        var data = {
+            employee_name: name, 
+            employee_lastname: lastanme, 
+            employee_number: number, 
+            employee_mail: mail, 
+            employee_address: address
+        }
+        axios.put(url + "/humanresources/"+id, data, headers)
+        .then(function (res) {
+            if (res.data.code === 201) {
+                alert(res.data.message);
+                window.location.href = "../html/hrsystem.html";
+            } else{
+                alert(res.data.message);
+            }
+         }).catch(function (err) {
+            console.log(err);
+         })
+    }
 }
