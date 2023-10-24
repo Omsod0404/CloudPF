@@ -16,9 +16,9 @@ humanresources.post("/", async (req, res, next) =>{
             return res.status(201).json({code:201, message: "Empleado insertado correctamente"});
         }  
 
-        return res.status(500).json({code:500, message:"Ocurrio un error"});
+        return res.status(201).json({code:500, message:"Ocurrio un error"});
     }
-    return res.status(500).json({code: 500, message: "Campos incompletos"})
+    return res.status(201).json({code: 500, message: "Campos incompletos"})
 });
 
 humanresources.delete("/:id([0-9]{1,3})", async (req, res, next)=>{
@@ -26,7 +26,7 @@ humanresources.delete("/:id([0-9]{1,3})", async (req, res, next)=>{
     const rows = await db.query(query);
 
     if(rows.affectedRows == 1){
-        return res.status(200).json({code: 200, message: "Empleado borrado correctamente"});
+        return res.status(201).json({code: 201, message: "Empleado borrado correctamente"});
     }
     return res.status(404).json({code: 404, message: "Empleado no encontrado"});
 });

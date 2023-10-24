@@ -103,6 +103,7 @@ header span{
 .table{
     background-color: rgb(61, 61, 61);
     width: 1160px;
+    height: 100%;
 }
 .searchbar{
     height: 60px;
@@ -163,22 +164,30 @@ header span{
 .tablecontent{
     width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .datatable{
-    max-height: 380px;
+    height: 360px;
+    max-height: 360px;
     overflow: scroll;
     overflow-y: scroll;
-    margin: 10px;
-    width: 93%;
+    margin: 11px 11px 0px 11px;
+    width: 98%;
 }
 #tableEmployees{
     border-collapse: collapse;
     table-layout: fixed;
+    background-color: white;
+    width: 100%;
 }
 #tableEmployees th, #tableEmployees td {
     border: 2px solid black;
     text-align: left;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #tableEmployees th {
     background-color: rgb(29, 29, 29);
@@ -187,9 +196,169 @@ header span{
     padding: 5px;
 }
 #tableEmployees td {
-    background-color: white;
     color: black;
     font-weight: lighter;
     height: 15px;
     padding: 5px;
+}
+tbody tr:hover {
+    background-color: rgb(223, 223, 223);
+    cursor: pointer;
+}
+#tableEmployees tbody tr.selected {
+    background-color: #aaaaaa;
+}
+#tableEmployees td:nth-child(1), th:nth-child(1) {
+    width: 25px;
+}
+
+#tableEmployees td:nth-child(2), th:nth-child(2) {
+    width: 100px;
+}
+
+#tableEmployees td:nth-child(3), th:nth-child(3) {
+    width: 150px;
+}
+#tableEmployees td:nth-child(4), th:nth-child(4) {
+    width: 150px;
+}
+
+#tableEmployees td:nth-child(5), th:nth-child(5) {
+    width: 300px;
+}
+
+#tableEmployees td:nth-child(6), th:nth-child(6) {
+    width: 600px;
+}
+#actionsrows{
+    width: 98%;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#actionsrows button{
+    height: 35px;
+    width: 200px;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+}
+#deleteemployee{
+    background-color: transparent;
+    border: red 3px solid;
+    transition: background-color 0.3s ease;
+}
+#deleteemployee:hover{
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+#editdata{
+    background-color: transparent;
+    border: #14FF00 3px solid;
+    transition: background-color 0.3s ease;
+}
+#editdata:hover{
+    background-color: #14FF00;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+}
+/*CSS for addemployee*/
+.addemployee{
+    height: 100%;
+    width: 100%;
+}
+.adddatasubtitle{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adddatasubtitle span{
+    color: #14FF00;
+    font-weight: bold;
+    font-size: 20px;
+}
+.adddataform{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.adddata{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adddata input{
+    font-family: 'Montserrat';
+    background-color: white;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    outline: #14FF00;
+    transition: border-color 0.3s ease;
+    width: 400px;
+}
+.adddata input:focus{
+    border-color: #14FF00;
+}
+.adddata input:hover:not(:focus){
+    border-color: white;
+}
+.adddata label{
+    color: white;
+    font-size: 20px;
+    margin-right: 5px;
+    margin-left: 20px;
+}
+#input-address{
+    width: 800px;
+}
+.adddataactions{
+    height: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.adddataactions button{
+    height: 100%;
+    width: 200px;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+}
+#add{
+    background-color: transparent;
+    border: #14FF00 3px solid;
+    transition: background-color 0.3s ease;
+}
+#add:hover{
+    background-color: #14FF00;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+}
+#canceladd{
+    background-color: transparent;
+    border: white 3px solid;
+    transition: background-color 0.3s ease;
+}
+#canceladd:hover{
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
 }

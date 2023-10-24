@@ -32,7 +32,7 @@ function login() {
         } else{
             mail.value = '';
             pass.value = '';
-            alert("Usuario y/o contraseña incorrectos");
+            alert(res.data.message);
         }
      }).catch(function (err) {
         console.log(err);

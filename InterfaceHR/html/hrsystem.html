@@ -15,6 +15,9 @@
     <script src="../js/hrsystem.js"></script>
     <script src="../js/initialdatasystem.js"></script>
     <script src="../js/filteremployees.js"></script>
+    <script src="../js/addemployees.js"></script>
+    <script src="../js/deleteemployee.js"></script>
+    <script src="../js/editdataemplo.js"></script>
 </head>
 <body>
     <header>
@@ -32,7 +35,7 @@
           <button class="btn" id="close">Cerrar Sesión</button>
         </div>
       </div>
-      <div class="table">
+      <div class="table" id="table">
         <div class="searchbar">
           <input type="text" id="namefilter" placeholder="Filtrar datos por nombre">
           <button class="btn" id="search"><span class="material-icons">search</span></button>
@@ -57,10 +60,8 @@
               </tbody>
             </table>
           </div>
-        <div class="actions">
-          <button>.</button>
-          <button>.</button>
-        </div>
+          <div id="actionsrows">
+          </div>
         </div>
       </div>
     </div>
