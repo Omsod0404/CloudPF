@@ -1,3 +1,4 @@
+//Funcion para mostrar el display para editar los datos de una fila seleccionada (empleado)
 function showEditDataDisplay(id,name,lastname,number,mail,address) {
     var tableDisplay = document.querySelector('#table');
     tableDisplay.innerHTML = '';
@@ -38,17 +39,17 @@ function showEditDataDisplay(id,name,lastname,number,mail,address) {
     document.getElementById('input-mail').value = mail; 
     document.getElementById('input-address').value = address;
 
-    //FUNCION PARA REGRESAR A LA PANTALLA PRINCIPAL DEL SISTEMA
-    const btncancel = document.querySelector('#canceladd');
-    btncancel.addEventListener('click', function () {
+    const btnCancel = document.querySelector('#canceladd');
+    btnCancel.addEventListener('click', function () {
         window.location.href = "../html/hrsystem.html";
     });
     
-    const btnedit = document.querySelector('#add');
-    btnedit.addEventListener('click', function () {
+    const btnEdit = document.querySelector('#add');
+    btnEdit.addEventListener('click', function () {
         editDataEmployee(id);
     });
 
+    //Funcion para ejecutar el put, para agregar un empleado
     function editDataEmployee(id) {
         var name = document.getElementById('input-name').value;
         var lastanme = document.getElementById('input-lastname').value; 

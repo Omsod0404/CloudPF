@@ -13,6 +13,7 @@ function init (){
     }
 }
 
+//Funcion para iniciar sesion
 function login() {
     var mail = document.getElementById('input-mail').value;
     var pass = document.getElementById('input-password').value; 

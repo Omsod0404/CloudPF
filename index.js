@@ -22,6 +22,7 @@ app.use(auth);
 app.use("/humanresources", humanresources);
 app.use(notFound);
 
+//Servidor
 app.listen(process.env.PORT || 3000, () => {
     console.log("Server is runnning...");
 })

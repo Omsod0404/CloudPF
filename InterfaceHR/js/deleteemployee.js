@@ -1,4 +1,5 @@
-function deleteemployee(id){
+//Funcion para eliminar la fila seleccionada (empleado)
+function deleteEmployee(id){
     axios.delete(url + "/humanresources/"+id, headers)
         .then(function (res) {
             if (res.data.code === 201) {

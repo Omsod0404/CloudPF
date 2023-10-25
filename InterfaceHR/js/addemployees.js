@@ -1,4 +1,4 @@
-//FUNCIONES PARA MOSTRAR EL DISPLAY PARA AGREGAR UN EMPLEADO A LA BASE DE DATOS
+//Funcion para mostrar el display para agregar un empleado
 function showAddDataDisplay() {
     var tableDisplay = document.querySelector('#table');
     tableDisplay.innerHTML = '';
@@ -33,18 +33,18 @@ function showAddDataDisplay() {
     `;
     tableDisplay.innerHTML = htmlString;
 
-    //FUNCION PARA REGRESAR A LA PANTALLA PRINCIPAL DEL SISTEMA
-    const btncancel = document.querySelector('#canceladd');
-    btncancel.addEventListener('click', function () {
+    const btnCancel = document.querySelector('#canceladd');
+    btnCancel.addEventListener('click', function () {
         window.location.href = "../html/hrsystem.html";
     });
-    //BOTON PARA AGREGAR LOS DATOS A LA BASE DE DATOS DEL NUEVO EMPLEADO
-    const btnadd = document.querySelector('#add');
-    btnadd.addEventListener('click', function () {
-        addemployee();
+
+    const btnAdd = document.querySelector('#add');
+    btnAdd.addEventListener('click', function () {
+        addEmployee();
     })
 
-    function addemployee() {
+    //Funcion para ejecutar el post, agregar un empleado
+    function addEmployee() {
         var name = document.getElementById('input-name').value;
         var lastanme = document.getElementById('input-lastname').value; 
         var number = document.getElementById('input-number').value;

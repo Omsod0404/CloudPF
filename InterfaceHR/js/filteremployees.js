@@ -1,54 +1,56 @@
-//FUNCION PARA BUSCAR A LOS EMPLEADOS POR SUS NOMBRES
-function filterdata() {
+//Funcion para buscar a los empleados por su nombre
+function filterData() {
     let name = document.getElementById('namefilter').value;
+    
     axios.get(url+"/humanresources/"+name, headers)
     .then(function (res) {
-        displayHRuserdatafiltered(res.data.message, name);
+        displayHRUserDataFiltered(res.data.message, name);
     }).catch(function (err) {
         console.log(err);
     })
 }
-
-function displayHRuserdatafiltered(employee, name) {
+//Funcion para desplegar los resultados de los datos filtrados en una tabla
+function displayHRUserDataFiltered(employee, name) {
     const table = document.querySelector('#tableEmployees tbody');
-    const divactions = document.getElementById('actionsrows');
+    const divActions = document.getElementById('actionsrows');
     table.innerHTML = '';
-    divactions.innerHTML = '';
+    divActions.innerHTML = '';
 
     for (let i = 0; i < employee.length; i++) {
-        const newrow = document.createElement('tr');
-        newrow.innerHTML = `<td>${employee[i].employee_id}</td>
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `<td>${employee[i].employee_id}</td>
                         <td>${employee[i].employee_name}</td>
                         <td>${employee[i].employee_lastname}</td>
                         <td>${employee[i].employee_number}</td>
                         <td>${employee[i].employee_mail}</td>
                         <td>${employee[i].employee_address}</td>`;
-        newrow.onclick = function() {
+        newRow.onclick = function() {
             selectRow(this);
         };
-        table.appendChild(newrow);
+        table.appendChild(newRow);
     }
 
     if (name != "") {
         const subtitle = document.querySelector('.subtitle');
         subtitle.innerHTML = '';
-        const newsubtitle = document.createElement('span');
+        const newSubtitle = document.createElement('span');
         subtitle.innerHTML='<span>Datos filtrados</span>';
     }else{
         const subtitle = document.querySelector('.subtitle');
         subtitle.innerHTML = '';
-        const newsubtitle = document.createElement('span');
+        const newSubtitle = document.createElement('span');
         subtitle.innerHTML='<span>Todos los datos</span>';
     }
 
+    //Funcion para seleccionar alguna fila de la tabla de los datos filtrados
     function selectRow(row) {
         var rows = document.getElementsByTagName('tr');
+
         for (var i = 0; i < rows.length; i++) {
             rows[i].classList.remove('selected');
         }
 
         row.classList.add('selected');
-
         const column1 = row.cells[0].textContent;
         const column2 = row.cells[1].textContent;
         const column3 = row.cells[2].textContent;
@@ -56,32 +58,34 @@ function displayHRuserdatafiltered(employee, name) {
         const column5 = row.cells[4].textContent;
         const column6 = row.cells[5].textContent;
 
-        showdeletebtn(column1);
-        showeditdatabtn(column1,column2,column3,column4,column5,column6);
+        showDeleteBtn(column1);
+        showEditDataBtn(column1,column2,column3,column4,column5,column6);
     }
 
-    function showdeletebtn(id) {
-        var btndelete = document.createElement('button');
-        btndelete.textContent = 'Eliminar Fila';
-        btndelete.id = "deleteemployee";
+    //Funcion para mostrar el boton para eliminar la fila seleccionada
+    function showDeleteBtn(id) {
+        var btnDelete = document.createElement('button');
+        btnDelete.textContent = 'Eliminar Fila';
+        btnDelete.id = "deleteemployee";
 
-        btndelete.onclick = function() {
-            deleteemployee(id);
+        btnDelete.onclick = function() {
+            deleteEmployee(id);
         };
 
-        divactions.innerHTML = '';
-        divactions.appendChild(btndelete);
+        divActions.innerHTML = '';
+        divActions.appendChild(btnDelete);
     }
 
-    function showeditdatabtn(id,name,lastname,number,mail,address) {
-        var btneditdata = document.createElement('button');
-        btneditdata.textContent = 'Editar Datos';
-        btneditdata.id = "editdata";
+    //Funcion para mostrar el boton para editar los datos de la fila seleccionada
+    function showEditDataBtn(id,name,lastname,number,mail,address) {
+        var btnEditData = document.createElement('button');
+        btnEditData.textContent = 'Editar Datos';
+        btnEditData.id = "editdata";
 
-        btneditdata.onclick = function() {
+        btnEditData.onclick = function() {
             showEditDataDisplay(id,name,lastname,number,mail,address);
         };
-
-        divactions.appendChild(btneditdata);
+        
+        divActions.appendChild(btnEditData);
     }
 }

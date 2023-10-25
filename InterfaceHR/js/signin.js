@@ -13,6 +13,7 @@ function init (){
     }
 }
 
+//Funcion para registrar un usuario de recursos humanos
 function signin() {
     var name = document.getElementById('input-name').value;
     var mail = document.getElementById('input-mail').value;
@@ -27,8 +28,12 @@ function signin() {
             hruser_password: pass
         }
      }).then(function (res) {
-        alert("Registro exitoso");
-        window.location.href = "./login.html";
+        if (res.data.code === 201) {
+            alert(res.data.message);
+            window.location.href = "./login.html";
+        } else{
+            alert(res.data.message);
+        }
      }).catch(function (err) {
         console.log(err);
      })

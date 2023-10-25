@@ -10,8 +10,7 @@ function init (){
                 'Authorization':"bearer " + localStorage.getItem("token")
             }
         }
-        //ESTO ESTA EN EL ARCHIVO INITIAL DATA
-        loadHRuserdata();
+        loadHRUserData();
         loadAllEmployees();
     }
     else{
@@ -21,22 +20,24 @@ function init (){
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    //BOTON PARA BUSCAR EMPLEADOS POR SUS NOMBRES
-    const btnsearch = document.querySelector('#search');
-    btnsearch.addEventListener('click', function () {
-        filterdata();
+    //Boton para buscar a los empleados por su nombre
+    const btnSearch = document.querySelector('#search');
+    btnSearch.addEventListener('click', function () {
+        filterData();
         document.getElementById('namefilter').value = "";
     });
-    //BOTON PARA CERRAR SESION Y ELIMINAR EL TOKEN DEL LOCAL STORAGE
-    const btnlogout = document.querySelector('#close');
-    btnlogout.addEventListener('click', function () {
+
+    //Boton para cerrar sesion y eliminar el token del localstorage
+    const btnLogout = document.querySelector('#close');
+    btnLogout.addEventListener('click', function () {
         window.location.href = "../index.html";
         localStorage.removeItem("token");
         localStorage.removeItem("hruserid");
-    })
-    //BOTON PARA CAMBIAR AL REGISTRO DE EMPLEADOS
-    const btnaddemployee = document.querySelector('#addregister');
-    btnaddemployee.addEventListener('click', function(){
+    });
+
+    //Boton para agregar registros
+    const btnAddEmployee = document.querySelector('#addregister');
+    btnAddEmployee.addEventListener('click', function(){
         showAddDataDisplay();
-    })
+    });
 });
