@@ -1,29 +1,3 @@
-//Funciones para cargar los datos del usuario de recursos humanos
-function loadHRUserData(){
-    hrUserId = localStorage.getItem("hruserid");
-
-    axios.get(url+"/hruser/"+hrUserId, headers)
-    .then(function (res) {
-        displayHRUserData(res.data.message);
-    }).catch(function (err) {
-        console.log(err);
-    })
-}
-
-//Funcion para mostrar los datos del usuario de recursos humanos
-function displayHRUserData(data) {
-    const hrUserData = document.querySelector('.data');
-    hrUserData.innerHTML = '';
-
-    for (const property in data[0]) {
-        if (data[0].hasOwnProperty(property)) {
-          const newSpan = document.createElement('span');
-          newSpan.textContent = `${data[0][property]}`;
-          hrUserData.appendChild(newSpan);
-        }
-    }
-}
-
 //Funcion para cargar los datos de todos los empleados
 function loadAllEmployees() {
     axios.get(url+"/humanresources", headers)
